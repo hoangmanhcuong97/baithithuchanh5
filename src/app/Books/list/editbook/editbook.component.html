@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12" style="margin-top: 20px">
+            <mat-card style="margin: 50px 0">
+                <mat-card-title class="alert alert-primary">Old Book</mat-card-title>
+                <div *ngIf="book">
+                    <b>Name Book: </b>
+                    <i style="color: #f92672">{{book.title}}</i><br>
+                </div>
+            </mat-card>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-12" style="margin-top: 20px">
+            <mat-card style="margin: 50px 0">
+                <form class="edit-student" #f="ngForm" (ngSubmit)="f.form.valid&&ngUpdate()" novalidate>
+                    <mat-error class="alert alert-primary">{{status}}</mat-error>
+                    <mat-form-field style="width: 350px" appearance="outline">
+                        <mat-label>Name Book:</mat-label>
+                        <input matInput name="nameBook" [(ngModel)]="book.title" #nameBook="ngModel" required>
+                        <mat-error *ngIf="nameBook.hasError('required')">The name Book is required!</mat-error>
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field style="width: 350px" appearance="outline">
+                        <mat-label>Name Author:</mat-label>
+                        <input matInput name="nameAuthor" [(ngModel)]="book.author" #nameAuthor="ngModel" required>
+                        <mat-error *ngIf="nameAuthor.hasError('required')">The name Book is required!</mat-error>
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field style="width: 350px" appearance="outline">
+                        <mat-label>Description:</mat-label>
+                        <input matInput name="description" [(ngModel)]="book.description" #description="ngModel" required>
+                    </mat-form-field>
+                    <br>
+                    <button mat-stroked-button color="accent" class="mat-button-toggle-group btn-outline-primary">Update
+                        Book
+                        <mat-icon color="accent" matSuffix>mic</mat-icon>
+                    </button>
+                </form>
+            </mat-card>
+        </div>
+    </div>
+</div>

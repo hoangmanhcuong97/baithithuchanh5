@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12" style="margin-top: 20px">
+            <mat-card style="margin: 50px 0">
+                <form class="create-student" #f="ngForm" (ngSubmit)="f.form.valid && ngCreate()" novalidate>
+                    <mat-error class="alert alert-primary">{{status}}</mat-error>
+                    <mat-form-field style="width: 350px" appearance="outline">
+                        <mat-label>Name Book:</mat-label>
+                        <input matInput name="title" [(ngModel)]="form.title" #title="ngModel" required>
+                        <mat-icon color="accent" matSuffix>Title</mat-icon>
+                        <mat-error *ngIf="title.hasError('required')">The name Student is required!</mat-error>
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field style="width: 350px" appearance="outline">
+                        <mat-label>Name Author:</mat-label>
+                        <input matInput name="author" [(ngModel)]="form.author" #author="ngModel" required>
+                        <mat-icon color="accent" matSuffix>Title</mat-icon>
+                        <mat-error *ngIf="author.hasError('required')">The name Student is required!</mat-error>
+                     </mat-form-field>
+                    <br>
+                    <mat-form-field style="width: 350px" appearance="outline">
+                        <mat-label>Description:</mat-label>
+                        <input matInput name="description" [(ngModel)]="form.description" #description="ngModel" required>
+                        <mat-icon color="accent" matSuffix>Title</mat-icon>
+                        <mat-error *ngIf="description.hasError('required')">The name Student is required!</mat-error>
+                    </mat-form-field>
+                    <br>
+                    <button mat-stroked-button color="accent" class="mat-button-toggle-group btn-outline-primary">Create
+                        Book
+                        <mat-icon color="accent" matSuffix>category</mat-icon>
+                    </button>
+                </form>
+            </mat-card>
+        </div>
+    </div>
+</div>
